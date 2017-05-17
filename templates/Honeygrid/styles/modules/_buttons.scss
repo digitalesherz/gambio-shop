@@ -1,0 +1,50 @@
+/* Buttons
+   ========================================================================== */
+
+.btn {
+	@include border-radius($gx-btn-border-radius);
+	text-transform: $gx-btn-text-transform;
+	
+	// primary
+	
+	&.btn-primary {
+		@include button-variant($gx-btn-primary-color, $gx-btn-primary-bg, $gx-btn-primary-border);
+		@include background($gx-btn-primary-bg,
+			                    $gx-btn-primary-bg-image-url,
+			                    $gx-btn-primary-bg-image-position,
+			                    $gx-btn-primary-bg-image-repeat,
+			                    $gx-btn-primary-bg-image-size,
+			                    $gx-btn-primary-bg-image-attachment);
+	}
+	
+	// default
+	
+	&.btn-default {
+		@include button-variant($gx-btn-default-color, $gx-btn-default-bg, $gx-btn-default-border);
+		@include background($gx-btn-default-bg,
+			                    $gx-btn-default-bg-image-url,
+			                    $gx-btn-default-bg-image-position,
+			                    $gx-btn-default-bg-image-repeat,
+			                    $gx-btn-default-bg-image-size,
+			                    $gx-btn-default-bg-image-attachment);
+	}
+	
+	// buy / call to action
+	
+	&.btn-buy {
+		@include button-variant($gx-btn-calltoaction-color, $gx-btn-calltoaction-bg, $gx-btn-calltoaction-border);
+		@include background($gx-btn-calltoaction-bg,
+			                    $gx-btn-calltoaction-bg-image-url,
+			                    $gx-btn-calltoaction-bg-image-position,
+			                    $gx-btn-calltoaction-bg-image-repeat,
+			                    $gx-btn-calltoaction-bg-image-size,
+			                    $gx-btn-calltoaction-bg-image-attachment);
+		&:focus {
+			outline: none;
+		}
+		
+		&.inactive {
+			opacity: 0.5;
+		}
+	}
+}

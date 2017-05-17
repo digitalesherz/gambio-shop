@@ -1,0 +1,70 @@
+/* Alerts
+   ========================================================================== */
+
+.alert {
+	margin-bottom: ($line-height-computed * 2);
+	&.checkbox {
+		padding:      5px 0;
+		label {
+			display: block;
+			padding: 5px floor($grid-gutter-width / 2) 5px floor(($grid-gutter-width / 2) + 20);
+		}
+		color:        $gx-checkbox-color;
+		border-color: $gx-checkbox-border;
+		
+		@include background($gx-checkbox-bg,
+		                    $gx-checkbox-bg-image-url,
+		                    $gx-checkbox-bg-image-position,
+		                    $gx-checkbox-bg-image-repeat,
+		                    $gx-checkbox-bg-image-size,
+		                    $gx-checkbox-bg-image-attachment);
+		&.active {
+			color:        $gx-checkbox-active-color;
+			border-color: $gx-checkbox-active-border;
+			
+			@include background($gx-checkbox-active-bg,
+			                    $gx-checkbox-active-bg-image-url,
+			                    $gx-checkbox-active-bg-image-position,
+			                    $gx-checkbox-active-bg-image-repeat,
+			                    $gx-checkbox-active-bg-image-size,
+			                    $gx-checkbox-active-bg-image-attachment);
+		}
+	}
+	
+	&.alert-danger {
+		color:        $gx-alert-danger-color;
+		border-color: $gx-alert-danger-border;
+		
+		@include background($gx-alert-danger-bg,
+		                    $gx-alert-danger-bg-image-url,
+		                    $gx-alert-danger-bg-image-position,
+		                    $gx-alert-danger-bg-image-repeat,
+		                    $gx-alert-danger-bg-image-size,
+		                    $gx-alert-danger-bg-image-attachment);
+	}
+	
+	&.alert-success {
+		background-color: $gx-alert-success-bg;
+		color:            $gx-alert-success-color;
+		border-color:     $gx-alert-success-border;
+		
+		@include background($gx-alert-success-bg,
+		                    $gx-alert-success-bg-image-url,
+		                    $gx-alert-success-bg-image-position,
+		                    $gx-alert-success-bg-image-repeat,
+		                    $gx-alert-success-bg-image-size,
+		                    $gx-alert-success-bg-image-attachment);
+	}
+	
+	&.alert-info {
+		color:        $gx-alert-info-color;
+		border-color: $gx-alert-info-border;
+		
+		@include background($gx-alert-info-bg,
+		                    $gx-alert-info-bg-image-url,
+		                    $gx-alert-info-bg-image-position,
+		                    $gx-alert-info-bg-image-repeat,
+		                    $gx-alert-info-bg-image-size,
+		                    $gx-alert-info-bg-image-attachment);
+	}
+}

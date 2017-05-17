@@ -1,0 +1,177 @@
+{load_language_text section="product_listing"}
+{load_language_text section="product_info" name="info"}
+{load_language_text section="buttons" name="button"}
+
+{$FILTER_SELECTION}
+
+{manufacturer_data
+	manufacturer_id=$gm_manufacturers_id
+	out=manufacturer
+}
+
+{include file="get_usermod:{$tpl_path}snippets/category_description.html" img_alt=$CATEGORIES_GM_ALT_TEXT category_title=$CATEGORIES_HEADING_TITLE
+	category_name=$CATEGORIES_NAME manufacturer=$manufacturer}
+
+<!-- #BOF YOOCHOOSE -->
+{if $MODULE_yoochoose_category_topsellers != ''}
+	{$MODULE_yoochoose_category_topsellers}
+{/if}
+<!-- #EOF YOOCHOOSE -->
+
+{include file="get_usermod:{$tpl_path}snippets/product_listing/product_listing_filter.html" formname="panel"}
+
+
+
+
+
+{* <div class="container-fluid" data-gambio-widget="product_hover" data-product_hover-scope=".productlist-viewmode-grid">
+	<div class="row product-filter-target productlist productlist-viewmode {if $VIEW_MODE == 'tiled'}productlist-viewmode-grid{else}productlist-viewmode-list{/if}" data-gambio-widget="cart_handler"> *}
+
+
+
+		{include file="get_usermod:{$tpl_path}snippets/product_listing/product_listing_main.html"}
+
+
+
+	{* </div>
+</div> *}
+
+
+
+<div class="container-fluid" data-gambio-widget="product_hover" data-product_hover-scope=".productlist-viewmode-grid">
+	<div class="category_teaser_unten row product-filter-target productlist productlist-viewmode {if $VIEW_MODE == 'tiled'}productlist-viewmode-grid{else}productlist-viewmode-list{/if}" data-gambio-widget="cart_handler">
+
+
+		{if $CATEGORIES_NAME eq "Pencil Cases"}
+			{content_manager group=14002}
+		{elseif $CATEGORIES_NAME eq "Federmäppchen"}
+			{content_manager group=14002}
+		{elseif $CATEGORIES_NAME eq "Wash Bags"}
+			{content_manager group=14003}
+		{elseif $CATEGORIES_NAME eq "Kulturtaschen"}
+			{content_manager group=14003}
+		{elseif $CATEGORIES_NAME eq "Interior"}
+			{content_manager group=14004}
+		{elseif $CATEGORIES_NAME eq "Interior"}
+			{content_manager group=14004}
+		{elseif $CATEGORIES_NAME eq "Tobacco Pouches"}
+			{content_manager group=14005}
+		{elseif $CATEGORIES_NAME eq "Tabakbeutel"}
+			{content_manager group=14005}
+		{elseif $CATEGORIES_NAME eq "Party"}
+			{content_manager group=14006}
+		{elseif $CATEGORIES_NAME eq "Party"}
+			{content_manager group=14006}
+		{elseif $CATEGORIES_NAME eq "Travelling"}
+			{content_manager group=14007}
+		{elseif $CATEGORIES_NAME eq "Reisen"}
+			{content_manager group=14007}
+		{elseif $CATEGORIES_NAME eq "Passport-Cover"}
+			{content_manager group=14008}
+		{elseif $CATEGORIES_NAME eq "Reisepasshüllen"}
+			{content_manager group=14008}
+		{elseif $CATEGORIES_NAME eq "Wallets"}
+			{content_manager group=14009}
+		{elseif $CATEGORIES_NAME eq "Portemonnaies"}
+			{content_manager group=14009}
+		{elseif $CATEGORIES_NAME eq "Washbags"}
+			{content_manager group=14010}
+		{elseif $CATEGORIES_NAME eq "Kulturtaschen"}
+			{content_manager group=14010}
+		{elseif $CATEGORIES_NAME eq "Uni & Office"}
+			{content_manager group=14011}
+		{elseif $CATEGORIES_NAME eq "Uni & Office"}
+			{content_manager group=14011}
+		{elseif $CATEGORIES_NAME eq "Document Sleeves"}
+			{content_manager group=14012}
+		{elseif $CATEGORIES_NAME eq "Dokumentenmappen"}
+			{content_manager group=14012}
+		{elseif $CATEGORIES_NAME eq "Utensil"}
+			{content_manager group=14012}
+		{elseif $CATEGORIES_NAME eq "Krims-Krams Körbchen"}
+			{content_manager group=14012}
+		{elseif $CATEGORIES_NAME eq "Paper Bins"}
+			{content_manager group=14013}
+		{elseif $CATEGORIES_NAME eq "Papierkörbe"}
+			{content_manager group=14013}
+		{elseif $CATEGORIES_NAME eq "Smartphone Cover"}
+			{content_manager group=14014}
+		{elseif $CATEGORIES_NAME eq "Handyhüllen"}
+			{content_manager group=14014}
+		{/if}
+
+{*
+Pencil Cases
+Wash Bags
+Interior
+Tobacco Pouches
+Party
+Travelling
+Passport-Cover
+Wallets
+Washbags
+Uni & Office
+Document Sleeves
+Utensil
+Paper Bins
+Smartphone Cover
+
+
+
+Federmäppchen
+Kulturtaschen
+Interior
+Tabakbeutel
+Party
+Reisen
+Reisepasshüllen
+Portemonnaies
+Kulturtaschen
+Uni & Office
+Dokumentenmappen
+Krims-Krams Körbchen
+Papierkörbe
+Handyhüllen
+
+
+
+14002 Pencil Cases
+14002 Federmäppchen
+14003 Wash Bags
+14003 Kulturtaschen
+14004 Interior
+14004 Interior
+14005 Tobacco Pouches
+14005 Tabakbeutel
+14006 Party
+14006 Party
+14007 Travelling
+14007 Reisen
+14008 Passport-Cover
+14008 Reisepasshüllen
+14009 Wallets
+14009 Portemonnaies
+14010 Washbags
+14010 Kulturtaschen
+14011 Uni & Office
+14011 Uni & Office
+14012 Document Sleeves
+14012 Dokumentenmappen
+14012 Utensil
+14012 Krims-Krams Körbchen
+14013 Paper Bins
+14013 Papierkörbe
+14014 Smartphone Cover
+14014 Handyhüllen
+*}
+
+	</div>
+</div>
+
+
+
+
+
+{include file="get_usermod:{$tpl_path}snippets/product_listing/product_listing_filter.html" formname="panel2"}
+
+{include file="get_usermod:{$tpl_path}snippets/navigation/pagination_info.html" info=$NAVIGATION_INFO}

@@ -1,0 +1,45 @@
+{load_language_text section="paypal3"}
+<div class="paypalinstallmentcontainer">
+	<div class="paypalinstallmentspecific" data-gambio-widget="paypalinstallmentsinfo">
+		{if $annualPercentageRate > 0}
+			<div class="ppi_introtext">
+				{$txt.financing_from} {$totalAmount} {$txt.in} {$numberOfInstallments} {$txt.monthly_payments_dative} {$txt.with_installments_by_paypal}
+			</div>
+			<div class="legal_intro">
+				{$txt.representative_example}:
+			</div>
+			<div class="credit-info-table">
+				<div class="row">
+					<div class="pp_cs_label col-md-12 col-lg-8">{$txt.net_loan_amount}</div>
+					<div class="pp_cs_data col-md-12 col-lg-4">{$cashPurchasePrice}</div>
+				</div>
+				<div class="row">
+					<div class="pp_cs_label col-md-12 col-lg-8">{$txt.nominal_rate}</div>
+					<div class="pp_cs_data col-md-12 col-lg-4">{$borrowingRate}%</div>
+				</div>
+				<div class="row">
+					<div class="pp_cs_label col-md-12 col-lg-8">{$txt.effective_apr}</div>
+					<div class="pp_cs_data col-md-12 col-lg-4">{$annualPercentageRate}%</div>
+				</div>
+				<div class="row">
+					<div class="pp_cs_label col-md-12 col-lg-8">{$txt.total_cost}</div>
+					<div class="pp_cs_data col-md-12 col-lg-4">{$totalAmount}</div>
+				</div>
+				<div class="row">
+					<div class="pp_cs_label col-md-12 col-lg-8">{$numberOfInstallments} {$txt.monthly_payments_nominative} {$txt.by_amount_of}</div>
+					<div class="pp_cs_data col-md-12 col-lg-4">{$installmentAmount}</div>
+				</div>
+			</div>
+
+			<div class="lender">{$txt.lender}: {$lender}</div>
+		{else}
+			<div class="ppi_introtext">
+				{$txt.financing_from}: {$installmentAmount} {$txt.per_month}
+			</div>
+		{/if}
+
+		<div class="popup_installments_info">{$txt.info_on_financing_options}</div>
+
+		<div class="pp_cs_popup">{$installmentOptions}</div>
+	</div>
+</div>

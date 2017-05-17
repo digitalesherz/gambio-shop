@@ -1,0 +1,96 @@
+/* Table
+   ========================================================================== */
+
+.table {
+	@include background($gx-table-bg,
+	                    $gx-table-bg-image-url,
+	                    $gx-table-bg-image-position,
+	                    $gx-table-bg-image-repeat,
+	                    $gx-table-bg-image-size,
+	                    $gx-table-bg-image-attachment);
+	// cells
+	> thead,
+	> tbody,
+	> tfoot {
+		> tr {
+			> th,
+			> td {
+				border-top-color: $gx-table-border-color;
+			}
+		}
+	}
+	
+	// headers
+	> thead > tr > th {
+		@include thick-heading();
+		
+		border-bottom: 3px solid $gx-table-border-color;
+		color:         $gx-table-headline-color;
+	}
+	
+	// responsive table behavior
+	&.table-responsive {
+		@media (max-width: $grid-float-breakpoint-max) {
+			
+			border:                     none;
+			
+			// display settings
+			&,
+			tbody,
+			tfoot,
+			tr,
+			td,
+			th {
+				display: block;
+				@include clearfix();
+			}
+			thead {
+				display: none;
+			}
+			
+			// borders
+			> thead,
+			> tbody,
+			> tfoot {
+				> tr {
+					> th,
+					> td {
+						border-top-width: 0;
+						padding-left:     ($grid-gutter-width / 2);
+						padding-right:    ($grid-gutter-width / 2);
+					}
+				}
+			}
+			> tbody > tr > td:nth-of-type(1) {
+				border-top-width: 1px;
+			}
+			
+			// safari mobile fix
+			overflow:                   none;
+			overflow-x:                 auto;
+			display:                    block;
+			-webkit-overflow-scrolling: touch;
+			
+			// reset bootstrap setting
+			td[class*="col-"],
+			th[class*="col-"] {
+				float: left;
+			}
+		}
+	}
+	
+	&.table-striped {
+		> tbody {
+			> tr {
+				&:nth-of-type(odd) {
+					background-color: $gx-table-odd-row-bg;
+					color:            $gx-table-body-color-odd;
+				}
+				&:nth-of-type(even) {
+					background-color: $gx-table-even-row-bg;
+					color:            $gx-table-body-color-even;
+				}
+			}
+		}
+	}
+}

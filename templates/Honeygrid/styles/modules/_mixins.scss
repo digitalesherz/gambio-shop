@@ -1,0 +1,78 @@
+/* Mixins
+   ========================================================================== */
+
+
+// Cross browser implementation of border radius for rounded corners without compatibility issues
+
+@mixin border-radius($radius: 5px, $corner: "all") {
+	-webkit-border-radius: $radius;
+	-moz-border-radius:    $radius;
+	border-radius:         $radius;
+	@if $corner == "top" {
+		-webkit-border-bottom-right-radius: 0;
+		-moz-border-radius-bottomright:     0;
+		border-bottom-right-radius:         0;
+		-webkit-border-bottom-left-radius:  0;
+		-moz-border-radius-bottomleft:      0;
+		border-bottom-left-radius:          0;
+	} @else if $corner == "bottom" {
+		-webkit-border-top-right-radius:    0;
+		-moz-border-radius-topright:        0;
+		border-top-right-radius:            0;
+		-webkit-border-top-left-radius:     0;
+		-moz-border-radius-topleft:         0;
+		border-top-left-radius:             0;
+	}
+}
+
+
+// Reset list styling
+
+@mixin reset-list() {
+	margin:     0;
+	padding:    0;
+	list-style: none;
+	> li {
+		padding: 0;
+	}
+}
+
+
+// Remove background images
+
+@mixin no-image-bg() {
+	background: #F9F9F9 none no-repeat;
+	border:     1px solid #DDDDDD;
+}
+
+
+// Transform normal Text to Headline
+
+@mixin thick-heading() {
+	font-weight:    700;
+	text-transform: uppercase;
+	font-size:      inherit;
+	color:          inherit;
+}
+
+
+// Style backgrounds which should be accessible by StyleEdit3
+
+@mixin background($bg-color, $bg-img-url, $bg-img-position, $bg-img-repeat, $bg-img-size, $bg-img-attachment) {
+	background-color: $bg-color;
+	@if ($bg-img-url and $bg-img-url != '' and $bg-img-url != "") {
+		background-image: url($bg-img-url);
+		@if ($bg-img-position) {
+			background-position: $bg-img-position;
+		}
+		@if ($bg-img-repeat) {
+			background-repeat: $bg-img-repeat;
+		}
+		@if ($bg-img-size) {
+			background-size: $bg-img-size;
+		}
+		@if ($bg-img-attachment) {
+			background-attachment: $bg-img-attachment;
+		}
+	}
+}

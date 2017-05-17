@@ -1,0 +1,33 @@
+<div class="ribbons">
+	{if $p_stock || $p_stock=="0"}
+		{if $p_stock<20 && $p_stock>=1}
+			<div class="ribbon-available stillavailable">
+				Only {$p_stock} left!
+			</div>
+		{elseif $p_stock < 1 || $p_stock=="0"}
+			{* <div> *}
+			<div class="sold-out">
+				Sold out <!-- Status: {$p_stock} -->
+			</div>
+		{/if}
+	{elseif $PRODUCTS_QUANTITY || $PRODUCTS_QUANTITY=="0"}
+		{if $PRODUCTS_QUANTITY<20 && $PRODUCTS_QUANTITY>=1}
+			<div class="ribbon-available stillavailable">
+				Only {$PRODUCTS_QUANTITY} left!
+			</div>
+		{elseif $PRODUCTS_QUANTITY < 1 || $PRODUCTS_QUANTITY=="0"}
+			{* <div> *}
+			<div class="sold-out">
+				Sold out <!-- Status: {$p_stock} -->
+			</div>
+		{/if}
+	{/if}
+
+	{foreach item=ribbon from=$ribbons.ribbons}
+		{if $ribbon.class && $ribbon.text}
+			<div class="ribbon-{$ribbon.class}">
+				<span>{$ribbon.text}</span>
+			</div>
+		{/if}
+	{/foreach}
+</div>

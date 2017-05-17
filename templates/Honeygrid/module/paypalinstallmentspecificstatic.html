@@ -1,0 +1,12 @@
+{load_language_text section="paypal3"}
+<div class="paypalinstallmentcontainer">
+	<div class="paypalinstallmentgeneric" data-gambio-widget="paypalinstallmentsinfo">
+		<div class="introtext">
+			{if $page_type == 'checkout_payment'}{$txt.generic_intro_checkout_payment}
+			{elseif $page_type == 'shopping_cart'}{$txt.generic_intro_shopping_cart}
+			{else}{$txt.generic_intro_product}{/if}
+		</div>
+		<div class="popup_installments_info" data-amount="{$amount}">{$txt.info_on_financing_options}</div>
+		<div class="pp_cs_popup"></div>
+	</div>
+</div>

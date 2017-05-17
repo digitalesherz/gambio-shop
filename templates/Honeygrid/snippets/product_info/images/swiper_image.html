@@ -1,0 +1,53 @@
+{if $is_list === 'true'}
+	<li class="thumbnails swiper-slide" {if $img_id} data-index="{$img_id}"{/if}>
+{else}
+	<div class="swiper-slide" {if $img_id} data-index="{$img_id}"{/if}>
+{/if}
+		<div class="swiper-slide-inside {if $swiperId == 'product_thumbnail_swiper'}vertical{/if}">
+			{if $img_prop}
+				<meta {$img_prop|strip_tags} content="{$smarty.const.HTTP_SERVER}{$smarty.const.DIR_WS_CATALOG}{$img_src|strip_tags}" />
+			{/if}
+			{if $swiperId == 'product_thumbnail_swiper_mobile'}
+				<div class="align-vertical">
+					<img {if $img_prop}{$img_prop|strip_tags}{/if}
+							{if $img_src2} data-thumb-src="{$img_src2|strip_tags}"{/if}
+							src="{$img_src|strip_tags}"
+							{if $img_alt} alt="{$img_alt|strip_tags}"{/if}
+							{if $img_title} title="{$img_title|strip_tags}"{/if}
+							{if $img_zoom} data-magnifier-src="{$img_zoom|strip_tags}"{/if}
+					/>
+				</div>
+			{elseif $swiperId == 'product_thumbnail_swiper' || $swiperId == 'product-info-layer-thumbnails'}
+				<div class="align-middle">
+					<img {if $img_prop}{$img_prop|strip_tags}{/if}
+							class="img-responsive"
+							{if $img_src2} data-thumb-src="{$img_src2|strip_tags}"{/if}
+							src="{$img_src|strip_tags}"
+							{if $img_alt} alt="{$img_alt|strip_tags}"{/if}
+							{if $img_title} title="{$img_title|strip_tags}"{/if}
+							{if $img_zoom} data-magnifier-src="{$img_zoom|strip_tags}"{/if}
+					/>
+				</div>
+			{else}
+				<a 
+					href="{$img_zoom|strip_tags}" 
+					title="{$image_data.IMAGE_ALT|default:$image_data.PRODUCTS_NAME}"
+					>
+					<img {if $img_prop}{$img_prop|strip_tags}{/if}
+							class="img-responsive"
+							{if $img_top} style="margin-top: {$img_top|strip_tags}px;"{/if}
+							{if $img_src2} data-thumb-src="{$img_src2|strip_tags}"{/if}
+							src="{$img_src|strip_tags}"
+							{if $img_alt} alt="{$img_alt|strip_tags}"{/if}
+							{if $img_title} title="{$img_title|strip_tags}"{/if}
+							{if $img_zoom} data-magnifier-src="{$img_zoom|strip_tags}"{/if}
+					/>
+				</a>
+			{/if}
+		</div>
+		
+{if $is_list === 'true'}
+	</li>
+{else}
+	</div>
+{/if}

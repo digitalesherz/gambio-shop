@@ -1,0 +1,150 @@
+/* Tabs & Mobile-Accordion
+   ========================================================================== */
+
+// add tab styles to
+// accordion headings
+
+.tab-content > .tab-pane {
+	.tab-heading > a {
+		display:     block;
+		position:    relative;
+		padding:     $nav-link-padding;
+		line-height: $line-height-base;
+		border:      1px solid transparent;
+		
+		@include border-top-radius($border-radius-base);
+		@include border-bottom-radius(0);
+		
+		&:focus,
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+// add styles to tab-navigation 
+// and accordion headings
+
+.nav-tabs {
+	border-bottom: 3px solid $gx-tab-container-border-color;
+	height:        50px;
+}
+
+.nav-tabs > li,
+.tab-content > .tab-pane > .tab-heading {
+	margin-bottom: 0;
+	
+	> a {
+		color:         $gx-tab-color;
+		margin:        0;
+		line-height:   $line-height-base;
+		height:        50px;
+		border:        none;
+		border-bottom: 3px solid $gx-tab-border-color;
+		
+		@extend h2;
+		
+		@include background($gx-tab-bg,
+		                    $gx-tab-bg-image-url,
+		                    $gx-tab-bg-image-position,
+		                    $gx-tab-bg-image-repeat,
+		                    $gx-tab-bg-image-size,
+		                    $gx-tab-bg-image-attachment);
+	}
+	> a:hover {
+		color:         $gx-tab-color-active;
+		border-bottom: 3px solid $gx-tab-border-color-active;
+		
+		@include background($gx-tab-bg-active,
+		                    $gx-tab-bg-active-image-url,
+		                    $gx-tab-bg-active-image-position,
+		                    $gx-tab-bg-active-image-repeat,
+		                    $gx-tab-bg-active-image-size,
+		                    $gx-tab-bg-active-image-attachment);
+	}
+	&:first-of-type {
+		> a {
+			padding-left: 0;
+		}
+	}
+}
+
+.nav-tabs > li.active,
+.tab-content > .tab-pane.active > .tab-heading {
+	> a,
+	> a:focus,
+	> a:hover {
+		border: none;
+		color:  $gx-tab-color-active;
+		
+		@include background($gx-tab-bg-active,
+		                    $gx-tab-bg-active-image-url,
+		                    $gx-tab-bg-active-image-position,
+		                    $gx-tab-bg-active-image-repeat,
+		                    $gx-tab-bg-active-image-size,
+		                    $gx-tab-bg-active-image-attachment);
+		
+		.has-multi-tabs & {
+			border-bottom: 3px solid $gx-tab-border-color-active;
+		}
+	}
+}
+
+.nav-tabs > li.active {
+	border-bottom: 3px solid $gx-tab-border-color-active;
+	
+	.has-multi-tabs & {
+		border-bottom: none;
+	}
+}
+
+// mobile behavior as accordion
+// hide tab navigation
+
+.nav-tabs {
+	display: none;
+}
+
+.tab-content > .tab-pane {
+	display: block;
+	
+	&.active > .tab-body {
+		display: block;
+	}
+	
+	> .tab-body {
+		display: none;
+	}
+}
+
+// reset mobile behavior
+
+@media (min-width: $grid-float-breakpoint) {
+	.nav-tabs {
+		display: block;
+	}
+	
+	.tab-content {
+		> .tab-pane {
+			display: none;
+			
+			&.active {
+				display: block;
+			}
+			
+			> .tab-heading {
+				display: none;
+			}
+			
+			> .tab-body {
+				display: block;
+			}
+		}
+	}
+}
+
+// tab-body padding
+
+.tab-body {
+	padding: $grid-gutter-width 0;
+} 

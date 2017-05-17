@@ -1,0 +1,8 @@
+{include file="get_usermod:{$tpl_path}snippets/alert_message.html" message=$info_message type="warning"}
+{if $cart_content_note}
+	{include file="get_usermod:{$tpl_path}snippets/alert_message.html" message=$cart_content_note type="warning"}
+{/if}
+
+{if $customer_status_allow_checkout == '0' && $customer_status_allow_checkout_info != ''}
+	{include file="get_usermod:{$tpl_path}snippets/alert_message.html" message=$customer_status_allow_checkout_info type="warning"}
+{/if}

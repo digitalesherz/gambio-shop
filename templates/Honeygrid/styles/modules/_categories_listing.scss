@@ -1,0 +1,38 @@
+
+.homepage-description-container,
+.categories-description-container {
+	margin: 3em auto;
+	clear: both;
+
+	p {
+		margin: 0 0 1.4em;
+	}
+
+	.categories-images {
+		margin-bottom: 15px;
+
+		img {
+			display:        inline-block;
+			vertical-align: middle;
+			margin-right:   10px;
+		}
+
+		.align-helper strong {
+			font-size: $font-size-h4;
+		}
+	}
+
+	.left,
+	.right {
+    font-size: 1.4em;
+    font-size: 1.5em;
+		margin-bottom: 2em;
+    font-family: "Bree Serif W01 Thin";
+    vertical-align: top;
+
+		@include make-xs-column(12);
+    @include make-sm-column(12);
+    @include make-md-column(6);
+    @include make-lg-column(6);
+	}
+}

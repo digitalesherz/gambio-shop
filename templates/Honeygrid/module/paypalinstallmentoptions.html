@@ -1,0 +1,97 @@
+{load_language_text section="paypal3"}
+
+<div class="pp_cs_popup_inner">
+	<button title="Close" type="button" class="mfp-close">×</button>
+	<div class="heading">
+		<div class="powered-by-paypal">
+			<img class="powered-by-paypal-vertical" src="{$tpl_path}/assets/images/pp_credit-german_v_rgb.png" title="{$pptxt.generic_installments} {$pptxt.powered_by} PayPal">
+		</div>
+	</div>
+	<div class="subheading">{$txt.pay_by_monthly_installments}</div>
+	<div class="infotext">{$txt.popup_infotext}</div>
+
+	{if $amount_too_high}
+		<div class="infotext" style="margin: 2em 0; font-size: 1.8em; font-weight: bold;">{$txt.amount_too_high}</div>
+	{else}
+		<div class="row qualifying-options">
+			{if $qualifyingOptions}
+				{foreach from=$qualifyingOptions item=creditoption key=plan}
+				<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 credit-plan-outer">
+					<div class="credit-plan">
+						<div class="credit-plan-heading">
+							{$txt.plan} {$plan + 1}
+							{if $representativeFinancingCode == $creditoption->credit_financing->financing_code}<span class="lowest-apr-marker">*</span>{/if}
+						</div>
+						<table class="credit-plan-details">
+							<tr>
+								<td class="pp_cs_label">{$txt.net_loan_amount}</td>
+								<td class="pp_cs_data">{$cashPurchasePrice}</td>
+							</tr>
+							<tr>
+								<td class="pp_cs_label">{$txt.nominal_rate}</td>
+								<td class="pp_cs_data">{$creditoption->credit_financing->nominal_rate|number_format:2:',':''}%</td>
+							</tr>
+							<tr>
+								<td class="pp_cs_label">{$txt.effective_apr}</td>
+								<td class="pp_cs_data">{$creditoption->credit_financing->apr|number_format:2:',':''}%</td>
+							</tr>
+							<tr>
+								<td class="pp_cs_label">{$txt.total_interest}</td>
+								<td class="pp_cs_data">{$creditoption->total_interest->value|number_format:2:',':''}&nbsp;{$creditoption->total_interest->currency_code}</td>
+							</tr>
+							<tr>
+								<td class="pp_cs_label">{$txt.total_cost}</td>
+								<td class="pp_cs_data">{$creditoption->total_cost->value|number_format:2:',':''}&nbsp;{$creditoption->total_cost->currency_code}</td>
+							</tr>
+							<tr>
+								<td class="pp_cs_label">{$creditoption->credit_financing->term} {$txt.monthly} {$txt.installments} {$txt.installments_of}</td>
+								<td class="pp_cs_data">{$creditoption->monthly_payment->value|number_format:2:',':''}&nbsp;{$creditoption->monthly_payment->currency_code}</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				{/foreach}
+			{else}
+				{$txt.sorry_no_qualifying_options}
+			{/if}
+		</div>
+	{/if}
+
+	{if $nonQualifyingOptions}
+		<div class="row non-qualifying-options">
+			<div class="non-qualifying-intro">
+				{$txt.intro_non_qualifying}
+			</div>
+			{foreach from=$nonQualifyingOptions item=creditoption key=plan}
+			<div class="col-xs-12 col-md-4 col-lg-3 credit-plan-outer">
+				<div class="credit-plan">
+					<div class="credit-plan-heading">
+						{$txt.plan} {$plan + 1}
+						{if $representativeFinancingCode == $creditoption->credit_financing->financing_code}<span class="lowest-apr-marker">*</span>{/if}
+					</div>
+					<table class="credit-plan-details">
+						<tr>
+							<td class="pp_cs_label">{$txt.min_amount}</td>
+							<td class="pp_cs_data">{$creditoption->min_amount->value|number_format:2:',':''}&nbsp;{$creditoption->min_amount->currency_code}</td>
+						</tr>
+						<tr>
+							<td class="pp_cs_label">{$txt.nominal_rate}</td>
+							<td class="pp_cs_data">{$creditoption->credit_financing->nominal_rate|number_format:2:',':''}%</td>
+						</tr>
+						<tr>
+							<td class="pp_cs_label">{$txt.effective_apr}</td>
+							<td class="pp_cs_data">{$creditoption->credit_financing->apr|number_format:2:',':''}%</td>
+						</tr>
+						<tr>
+							<td class="pp_cs_label">{$creditoption->credit_financing->term} {$txt.monthly} {$txt.installments}</td>
+							<td class="pp_cs_data">&nbsp;</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			{/foreach}
+		</div>
+	{/if}
+	<div class="info-representative"><span class="lowest-apr-marker">*</span> {$txt.info_representative_example}</div>
+	<div class="lender">{$txt.lender}: {$lender}</div>
+</div>

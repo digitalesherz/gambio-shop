@@ -1,0 +1,12 @@
+{load_language_text section="paypal3" name="pptxt"}
+
+{include file="get_usermod:{$tpl_path}snippets/box/default/top.html" class="paypal" headline=$pptxt.paypal_installments_box_title}
+
+<div class="paypalinstallmentgeneric">
+	<div class="introtext">{$pptxt.generic_intro}</div>
+	<div class="powered-by-paypal">
+		<img class="powered-by-paypal-vertical" src="{$tpl_path}/assets/images/pp_credit-german_v_rgb.png" title="{$pptxt.generic_installments} {$pptxt.powered_by} PayPal">
+	</div>
+</div>
+
+{include file="get_usermod:{$tpl_path}snippets/box/default/bottom.html"}

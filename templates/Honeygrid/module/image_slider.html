@@ -1,0 +1,17 @@
+{* Contains the JSON Serialized Slider Data *}
+{if $content_data.json_serialized_slider}
+	<script type="application/json" id="json-serialized-slider">{$content_data.json_serialized_slider}</script>
+{/if}
+
+<div class="swiper-container" data-gambio-widget="swiper" data-swiper-disable-translucence-fix="true" data-swiper-breakpoints='{literal}[{"breakpoint": 100, "usePreviewBullets": true, "slidesPerView": 1}]{/literal}' data-swiper-slider-options='{literal}{"effect": "fade", "speed": 600, "nextButton": ".js-teaser-slider-next", "prevButton": ".js-teaser-slider-prev", "autoplay": {/literal}{$content_data.SET_INTERVAL}{literal}}{/literal}'>
+	<div class="swiper-wrapper">
+		{if $content_data.placeholder_image_url}
+			<div class="swiper-slide">
+				<img class="placeholder-image img-responsive center-block" src="{$content_data.placeholder_image_url}" />	
+			</div>
+		{/if}
+	</div>
+	<div class="swiper-pagination"></div>
+	<div class="js-teaser-slider-prev swiper-button-prev"></div>
+	<div class="js-teaser-slider-next swiper-button-next"></div>
+</div>
